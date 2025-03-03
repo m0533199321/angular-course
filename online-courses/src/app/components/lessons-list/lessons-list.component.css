@@ -1,0 +1,245 @@
+.course-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* ממרכז את התוכן */
+    justify-content: center; /* ממרכז את התוכן */
+    height: 100%; /* תופס את כל הגובה */
+}
+
+.mat-card-title {
+    margin-top: 50%;
+    font-size: 2em;
+    align-self: flex-start;
+}
+
+.title {
+    color: #333;
+}
+
+.courses {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.add-button {
+    position: fixed;
+    top: 18%;
+    left: 3%;
+    z-index: 10;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.add-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.lesson-card {
+    width: 50vw;
+    margin: 10px;
+    position: relative;
+}
+
+.content{
+    font-size: 1.5em;
+}
+
+.icon-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.edit-button, .delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* .course-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.add-button {
+    position: fixed;
+    top: 18%;
+    left: 3%;
+    z-index: 10;
+    background-color: #ffffff;
+    /* border: 2px solid #007bff;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.add-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* border-color: #0056b3;
+}
+
+.lesson-card {
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 600px; 
+    height: 150px;
+    margin: 15px auto;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+}
+
+.courses {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.course-card {
+    display: flex;
+    /* flex-direction: row; */
+    /* justify-content: space-between;
+    /* align-items: center;
+    width: 400px; /* הגדר רוחב לכרטיס
+    height: 150px; /* הגדר גובה לכרטיס
+    margin: 15px;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.course-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* border-color: #0056b3;
+}
+
+.mat-card-title {
+    font-weight: bold;
+    /* color: #007bff;
+}
+
+.mat-card-content {
+    color: #555;
+}
+
+.course-card .mat-card-title {
+    display: flex;
+    align-items: center;
+}
+
+.course-card .mat-card-title i {
+    margin-right: 10px;
+    /* color: #007bff;
+    font-size: 1.5em;
+}
+
+.course-card {
+    display: flex;
+    /* flex-direction: column; */
+    /* justify-content: space-between;
+    height: 200px;
+}
+
+.card-content {
+    display: flex;
+    /* justify-content: space-between; */
+    /* align-items: center;
+    width: 100%;
+}
+
+.edit-button, .delete-button {
+    position: absolute;
+    bottom: 4px;
+}
+
+.edit-button {
+    right: 35px;
+}
+
+.delete-button {
+    right: 15px;
+}
+
+.display-container {
+    width: 100%;
+    position: relative;
+    display: inline-block; 
+}
+
+.tooltip {
+    visibility: hidden;
+    width: 95px;
+    height: 10px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+
+    position: absolute;
+    z-index: 1;
+    bottom: 0.5%;
+    left: 57%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.display-container:hover .tooltip {
+    visibility: visible;
+}
+
+.tooltip-delete {
+    width: 40px;
+    left: 100%;
+}
+
+.tooltip-edit {
+    width: 30px;
+    left: 100%;
+} */

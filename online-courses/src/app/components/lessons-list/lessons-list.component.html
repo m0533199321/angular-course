@@ -1,0 +1,111 @@
+<div class="course-container">
+    <h1 class="title">Lessons of course {{ courseId }}: </h1>
+    <div class="courses">
+        @if(this.user.value.role == 'teacher'){
+        <button (click)="toggleAdd(this.lesson)" class="add-button">add lesson{{'add' | icons}}</button>}
+        @if((lessons$|async)?.length==0){
+        <div>No lessons in this course</div>
+        }
+        @else{
+        @for (lesson of (lessons$ | async); track lesson.title) {
+        <mat-card class="lesson-card">
+            <mat-card-header>
+                <mat-card-title class="mat-card-title">
+                    <i class="fas fa-book"></i> {{ lesson.title }}
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="card-content">
+                <p class="content">Lesson content: {{ lesson.content }}</p>
+                @if(this.user.value.role == 'teacher'){
+                <div class="icon-container">
+                    <button appDirective text="edit" class="edit-button" (click)="toggleEdit(lesson)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button appDirective text="delete" class="delete-button"
+                        (click)="deleteLesson(courseId, lesson.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+                }
+            </mat-card-content>
+        </mat-card>
+        }
+        @empty {
+        <div>Loading lessons...</div>
+        }
+        }
+    </div>
+</div>
+
+@if(this.edit){
+<div class="overlay">
+    <app-lesson [lesson]="lesson" (save)="editLesson($event)">
+    </app-lesson>
+</div>
+}
+
+@if(this.add){
+<div class="overlay">
+    <app-lesson [lesson]="lesson" (save)="addLesson($event)">
+    </app-lesson>
+</div>
+}
+
+
+
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div class="course-container">
+    <h1 class="title">Lessons of course {{ courseId }}: </h1>
+    <div class="courses">
+        @if(this.user.role == 'teacher'){
+        <button (click)="toggleAdd(this.lesson)" class="add-button">add lesson{{'add' | icons}}</button>}
+        @if((lessons$|async)?.length==0){
+        <div>No lessons in this course</div>
+        }
+        @else{
+        @for (lesson of (lessons$ | async); track lesson.title) {
+        <mat-card class="lesson-card">
+            <mat-card-header>
+                <mat-card-title>
+                    <i class="fas fa-book"></i> {{ lesson.title }}
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="card-content">
+                <p>Lesson content: {{ lesson.content }}</p>
+                @if(this.user.role == 'teacher'){
+                <div class="display-container">
+                    <button appDirective text="edit" class="edit-button" (click)="toggleEdit(lesson)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </div>
+                <div class="display-container">
+                    <button appDirective text="delete" class="delete-button"
+                        (click)="deleteLesson(courseId, lesson.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+                }
+            </mat-card-content>
+        </mat-card>
+        }
+        @empty {
+        <div>Loading lessons...</div>
+        }
+        }
+    </div>
+</div>
+
+@if(this.edit){
+<div class="overlay">
+    <app-lesson [lesson]="lesson" (save)="editLesson($event)">
+    </app-lesson>
+</div>
+}
+
+@if(this.add){
+<div class="overlay">
+    <app-lesson [lesson]="lesson" (save)="addLesson($event)">
+    </app-lesson>
+</div>
+} -->

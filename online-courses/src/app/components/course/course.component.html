@@ -1,0 +1,21 @@
+<div class="overlay">
+    <div id="root">
+        <h1>Course:</h1>
+        <form (ngSubmit)="onSignIn()" class="signup-form">
+            <mat-form-field appearance="fill" class="custom-form-field">
+                <mat-label>Title</mat-label>
+                <input matInput type="text" [(ngModel)]="course.title" name="title" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="custom-form-field">
+                <mat-label>Description</mat-label>
+                <input matInput type="text" [(ngModel)]="course.description" name="description" required>
+            </mat-form-field>
+            
+            <div class="button-group">
+                <button mat-raised-button color="primary" type="submit">Save</button>
+                <button mat-raised-button color="primary" type="reset" (click)="onCancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

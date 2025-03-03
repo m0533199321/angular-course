@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div class="course-container">
+    <h1 class="title">Available Courses</h1>
+    <div class="courses">
+        @if(this.user.value.role == 'teacher')
+        {<button (click)="toggleAdd(this.course)" class="add-button">add course{{'add' | icons}}</button>}
+        @if((courses$|async)?.length==0){
+        <div>No courses</div>
+        }
+        @else{
+        @for (course of (courses$ | async); track course.title) {
+        <mat-card class="course-card">
+            <mat-card-header>
+                <mat-card-title>
+                    <i class="fas fa-book"></i> {{ course.title }}
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>Course description: {{ course.description }}</p>
+                <div class="display-container">
+                    <button class="display-button" (click)="toggleDisplay(course.id)">
+                        <mat-icon>assignment</mat-icon>
+                        <!-- <mat-icon>playlist_add_check</mat-icon> -->
+                    </button>
+                    <span class="tooltip tooltip-display">dislay lessons</span>
+                </div>
+                @if(this.user.value.role == 'teacher'){
+                <div class="display-container">
+                    <button class="edit-button" (click)="toggleEdit(course)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <span class="tooltip tooltip-edit">edit</span>
+                </div>
+                <div class="display-container">
+                    <button class="delete-button" (click)="deleteCourse(course.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <span class="tooltip tooltip-delete">delete</span>
+                </div>
+                }
+                @else{
+                @if(this.user.value.role == 'student'){
+                @if(!courseExists(course.id)){
+                <div class="display-container">
+                    <button class="register-button" (click)="addStudentToCourse(course.id)">
+                        <mat-icon>login</mat-icon>
+                    </button>
+                    <span class="tooltip tooltip-login">login</span>
+                </div>}
+                @else{
+                <div class="display-container">
+                    <button class="cancel-button" (click)="RemoveStudentFromCourse(course.id)">
+                        <mat-icon>logout</mat-icon>
+                    </button>
+                    <span class="tooltip tooltip-logout">logout</span>
+                </div>
+                }
+                }
+                }
+            </mat-card-content>
+        </mat-card>
+        }
+        @empty {
+        <div>Loading courses...</div>
+        }
+        }
+    </div>
+</div>
+
+@if(this.edit){
+<div class="overlay">
+    <app-course [course]="course" (save)="editCourse($event)">
+    </app-course>
+</div>
+}
+
+@if(this.add){
+<div class="overlay">
+    <app-course [course]="course" (save)="addCourse($event)">
+    </app-course>
+</div>
+}

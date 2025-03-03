@@ -1,0 +1,220 @@
+.course-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.add-button {
+    position: fixed;
+    /* מיקום קבוע */
+    top: 18%;
+    /* מרחק מהחלק העליון */
+    left: 3%;
+    /* מרחק מהצד השמאלי */
+    z-index: 10;
+    /* ודא שהכפתור מעל שאר האלמנטים */
+    background-color: #ffffff;
+    /* border: 2px solid #007bff; */
+    border-radius: 5px;
+    /* פינות מעוגלות */
+    padding: 10px 15px;
+    /* ריפוד */
+    cursor: pointer;
+    /* מצביע על כך שזה כפתור */
+    transition: transform 0.2s ease;
+    /* הוספת מעבר חלק */
+}
+
+.add-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* border-color: #0056b3; */
+}
+
+
+.courses {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.course-card {
+    width: 300px;
+    margin: 15px;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* border: 2px solid #007bff; */
+    padding: 20px;
+}
+
+.course-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* border-color: #0056b3; */
+}
+
+.mat-card-title {
+    font-weight: bold;
+    /* color: #007bff; */
+}
+
+.mat-card-content {
+    color: #555;
+    /* צבע אפור כהה */
+}
+
+.course-card .mat-card-title {
+    display: flex;
+    align-items: center;
+}
+
+.course-card .mat-card-title i {
+    margin-right: 10px;
+    /* רווח בין האייקון לשם הקורס */
+    color: #007bff;
+    /* צבע האייקון */
+    font-size: 1.5em;
+    /* גודל האייקון */
+}
+
+.course-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* יוצר רווח בין התוכן לכפתור */
+    height: 200px;
+    /* קבע גובה קבוע לכרטיס */
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* מפזר את התוכן והכפתור */
+    flex-grow: 1;
+    /* מאפשר לתוכן לתפוס את כל הגובה */
+    position: relative;
+    /* הכרחי למיקום הכפתור */
+}
+
+.edit-button {
+    position: absolute;
+    /* ממקם את הכפתור באופן מוחלט */
+    bottom: 20px;
+    /* מרחק מהתחתית */
+    right: 65px;
+    /* מרחק מהצד הימני */
+}
+
+.delete-button {
+    position: absolute;
+    /* ממקם את הכפתור באופן מוחלט */
+    bottom: 20px;
+    /* מרחק מהתחתית */
+    right: 115px;
+    /* מרחק מהצד הימני */
+}
+
+.display-button {
+    position: absolute;
+    /* ממקם את הכפתור באופן מוחלט */
+    bottom: 20px;
+    /* מרחק מהתחתית */
+    right: 15px;
+    /* מרחק מהצד הימני */
+}
+
+.register-button {
+    position: absolute;
+    /* ממקם את הכפתור באופן מוחלט */
+    bottom: 20px;
+    /* מרחק מהתחתית */
+    left: 15px;
+    /* מרחק מהצד השמאלי */
+}
+
+.cancel-button {
+    position: absolute;
+    /* ממקם את הכפתור באופן מוחלט */
+    bottom: 20px;
+    /* מרחק מהתחתית */
+    left: 15px;
+    /* מרחק מהצד השמאלי */
+}
+
+.display-container {
+    /* position: relative; */
+    display: inline-block;
+}
+
+.tooltip {
+    visibility: hidden;
+    width: 95px;
+    height: 10px;
+    /* ודא שהגובה מספיק כדי להכיל את הטקסט */
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+
+    /* מיקום הטוליפ */
+    position: absolute;
+    z-index: 1;
+    /* ודא שהטוליפ נמצא מעל שאר האלמנטים */
+    bottom: -0.5%;
+    /* מיקום מעל הכפתור */
+    left: 57%;
+    transform: translateX(-50%);
+    /* מרכז את הטוליפ */
+
+    /* שימוש ב-flexbox למרכז את הטקסט */
+    display: flex;
+    align-items: center;
+    /* מרכז אנכית */
+    justify-content: center;
+    /* מרכז אופקית */
+}
+
+.display-container:hover .tooltip {
+    visibility: visible;
+}
+
+.tooltip-display {
+    width: 95px;
+    left: 70%;
+}
+
+.tooltip-delete {
+    width: 40px;
+    left: 48%;
+}
+
+.tooltip-edit {
+    width: 30px;
+    left: 65%;
+}
+
+.tooltip-login {
+    width: 40px;
+    left: 5%;
+}
+
+.tooltip-logout {
+    width: 40px;
+    left: 5%;
+}
+
