@@ -24,6 +24,6 @@ export class HomeComponent {
   constructor(private router: Router) {}
 
   signUp() {
-    this.router.navigate(['signIn']);
+    this.router.navigate(['courses']);
   }
 }
